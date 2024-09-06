@@ -13,9 +13,43 @@ enum Tab {
 }
 
 struct BudgetUIView: View {
-    @State private var percentage: Double = 75 // Adjust the percentage here
+    @ObservedObject var viewModel: BudgetViewModel
     @State private var selectedTab: Tab = .income
-    @State private var selectedCurrency: Currency = .usd
+    @State private var newIncomeSheet: Bool = false
+    @State private var newExpenditureSheet: Bool = false
+    @State private var newCategory: Bool = false
+    @State private var selectedCategory: Category?
+    
+    private var percentage: Double {
+        return (viewModel.sumIncomes() * 100.0)/(viewModel.sumIncomes() + viewModel.sumExpenditures())
+    }
+    
+    var filteredIncomes: [Income] {
+        if let category = selectedCategory{
+            if category.name == "All"  {
+                return viewModel.incomes
+            } else {
+                return viewModel.incomes.filter { $0.category == category }
+            }
+        } else {
+            return viewModel.incomes
+        }
+    }
+    
+    var filteredExpenditures: [Income] {
+        if let category = selectedCategory, category.name != "All" {
+            
+            if category.name == "All"  {
+                return viewModel.expenditures
+            } else {
+                return viewModel.expenditures.filter { $0.category == category }
+            }
+            
+        } else {
+            return viewModel.expenditures
+        }
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
@@ -30,18 +64,19 @@ struct BudgetUIView: View {
                     }.padding(10).padding(.vertical, 5).background(Color.grayBg).cornerRadius(20)
                     
                     VStack(spacing: 20) {
-                        
-                        HStack(spacing: 4) {
-                            Image("usdFlag")
-                            Text("USD")
-                                .font(.system(size: 16, weight: .semibold))
-                            Image(systemName: "chevron.down")
-                                .font(.system(size: 20, weight: .semibold))
+                        NavigationLink {
+                            CurrencyUIView(currency: $viewModel.currency)
+                        } label: {
+                            ForEach(currencies, id: \.0) { currencyInfo in
+                                if viewModel.currencySymbol(for: currencyInfo.0) == viewModel.currencySymbol(for: viewModel.currency) {
+                                    viewModel.currencyRow(currencyInfo: currencyInfo)
+                                }
+                            }
+                            
                         }
-                        
                         ZStack {
                             VStack(alignment: .leading) {
-                                Text("$20 543.50")
+                                Text("\(viewModel.currencySymbol(for: viewModel.currency))\(String(format: "%.2f", viewModel.sumIncomes()))")
                                     .font(.system(size: 22, weight: .bold))
                                 Text("Income")
                                     .foregroundColor(.gray.opacity(0.7))
@@ -51,7 +86,7 @@ struct BudgetUIView: View {
                         
                         ZStack {
                             VStack(alignment: .leading) {
-                                Text("$10 543.50")
+                                Text("\(viewModel.currencySymbol(for: viewModel.currency))\(String(format: "%.2f", viewModel.sumExpenditures()))")
                                     .font(.system(size: 22, weight: .bold))
                                 Text("Expenditure")
                                     .foregroundColor(.gray.opacity(0.7))
@@ -81,50 +116,108 @@ struct BudgetUIView: View {
                     Text("History")
                         .font(.system(size: 28, weight: .bold))
                     Spacer()
-                    Image(systemName: "plus")
-                        .font(.system(size: 20, weight: .semibold))
+                    Button {
+                        newIncomeSheet = true
+                        
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(.black)
+                    }
                 }
                 HStack {
-                    Image(systemName: "pencil")
-                        .font(.system(size: 20, weight: .semibold))
-                        .padding(10)
-                        .padding(.horizontal, 8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.main, lineWidth: 2)
-                        )
-                    ScrollView(.horizontal) {
-                        Text("All")
-                            .font(.system(size: 16))
+                    Button {
+                        newCategory = true
+                    } label : {
+                        Image(systemName: "pencil")
+                            .foregroundColor(.black)
+                            .font(.system(size: 20, weight: .semibold))
                             .padding(10)
                             .padding(.horizontal, 8)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.main, lineWidth: 2)
                             )
-                            .padding(2)
+                            .opacity(0.5)
+                    }
+                    ScrollView(.horizontal) {
+                        
+                        HStack {
+                            ForEach(viewModel.categories, id: \.self) { category in
+                                Text(category.name)
+                                    .font(.system(size: 16))
+                                    .padding(10)
+                                    .padding(.horizontal, 8)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color.main, lineWidth: 2)
+                                    )
+                                    .padding(2)
+                                    .opacity(selectedCategory == category ? 1 : 0.5)
+                                    .onAppear {
+                                        if category.name == "All" {
+                                            selectedCategory = category
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        selectedCategory = category
+                                    }
+                            }
+                        }
                     }
                     
                 }
                 
                 ZStack {
+                    Rectangle()
+                        .foregroundColor(Color.grayBg).cornerRadius(32)
+                    if viewModel.incomes.isEmpty {
                         Text("There are no records")
-                        .font(.system(size: 17, weight: .semibold))
+                            .font(.system(size: 17, weight: .semibold))
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 90)
+                    } else {
+                        ScrollView {
+                            if selectedTab == .income {
+                                ForEach(filteredIncomes, id: \.self) { income in
+                                    BudgetCellUIView(income: income, symbol: viewModel.currencySymbol(for: viewModel.currency))
+                                        .padding(.horizontal)//.padding(.top,8)
+                                }
+                            } else {
+                                ForEach(filteredExpenditures, id: \.self) { income in
+                                    BudgetCellUIView(income: income, symbol: viewModel.currencySymbol(for: viewModel.currency))
+                                        .padding(.horizontal)//.padding(.top,8)
+                                }
+                                
+                            }
+                        }.padding(.bottom, 30)
+                    }
                    
-                }.background(Color.grayBg).cornerRadius(32)
+                }
                 
                 Spacer()
                 
             }.padding(.horizontal)
+            
+            if newCategory {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.black.opacity(0.5)).ignoresSafeArea()
+                    CategoryUIView(viewModel: viewModel, openSheet: $newCategory)
+                }
+            }
+            
+        }.sheet(isPresented: $newIncomeSheet) {
+            AddIncomeView(viewModel: viewModel, selectedTab: selectedTab)
         }
     }
+    
 }
 
 #Preview {
-    BudgetUIView()
+    BudgetUIView(viewModel: BudgetViewModel())
 }
 
 struct CircleDiagramView: View {

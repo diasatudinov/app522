@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct BudgetCellUIView: View {
+    @State var income: Income
+    @State var symbol: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.main)
+                .frame(height: 74)
+                .cornerRadius(32)
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(income.name)
+                        .font(.system(size: 17, weight: .bold))
+                        .foregroundColor(.white)
+                    Text(income.category.name)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.5))
+                }
+                Spacer()
+                
+                Text("\(symbol)\(String(format: "%.2f", income.amount))")
+                    .font(.system(size: 17, weight: .bold))
+                    .foregroundColor(.white)
+                
+            }.padding(.horizontal, 20)
+            
+        }
     }
 }
 
 #Preview {
-    BudgetCellUIView()
+    BudgetCellUIView(income: Income(name: "BMW X5", amount: 200, category: Category(name: "Cars")), symbol: "$")
 }
