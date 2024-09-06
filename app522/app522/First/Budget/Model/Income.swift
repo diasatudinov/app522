@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct Income: Identifiable, Hashable, Codable {
+    var id = UUID()
+    var name: String
+    var amount: Double
+    var category: Category
+}
+
+struct Category: Identifiable, Hashable,Equatable, Codable {
+    var id = UUID()
+    var name: String
+}

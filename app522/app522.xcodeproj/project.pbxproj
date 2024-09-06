@@ -14,6 +14,14 @@
 		2B8BBCF82C89F34E008139DF /* LoaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBCF72C89F34E008139DF /* LoaderUIView.swift */; };
 		2B8BBCFE2C89F624008139DF /* ReOnboardingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBCFD2C89F624008139DF /* ReOnboardingUIView.swift */; };
 		2B8BBD002C89FCCA008139DF /* UsOnboardingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBCFF2C89FCCA008139DF /* UsOnboardingUIView.swift */; };
+		2B8BBD032C8AE9DE008139DF /* TabUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD022C8AE9DE008139DF /* TabUIView.swift */; };
+		2B8BBD062C8AEDAB008139DF /* BudgetUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD052C8AEDAB008139DF /* BudgetUIView.swift */; };
+		2B8BBD082C8AFB74008139DF /* CurrencyUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD072C8AFB74008139DF /* CurrencyUIView.swift */; };
+		2B8BBD0D2C8AFE5C008139DF /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD0C2C8AFE5C008139DF /* BudgetViewModel.swift */; };
+		2B8BBD0F2C8B1FA3008139DF /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD0E2C8B1FA3008139DF /* Income.swift */; };
+		2B8BBD112C8B2129008139DF /* AddIncomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD102C8B2129008139DF /* AddIncomeUIView.swift */; };
+		2B8BBD132C8B3069008139DF /* CategoryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD122C8B3069008139DF /* CategoryUIView.swift */; };
+		2B8BBD152C8B3424008139DF /* BudgetCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD142C8B3424008139DF /* BudgetCellUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +33,14 @@
 		2B8BBCF72C89F34E008139DF /* LoaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderUIView.swift; sourceTree = "<group>"; };
 		2B8BBCFD2C89F624008139DF /* ReOnboardingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReOnboardingUIView.swift; sourceTree = "<group>"; };
 		2B8BBCFF2C89FCCA008139DF /* UsOnboardingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsOnboardingUIView.swift; sourceTree = "<group>"; };
+		2B8BBD022C8AE9DE008139DF /* TabUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabUIView.swift; sourceTree = "<group>"; };
+		2B8BBD052C8AEDAB008139DF /* BudgetUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetUIView.swift; sourceTree = "<group>"; };
+		2B8BBD072C8AFB74008139DF /* CurrencyUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUIView.swift; sourceTree = "<group>"; };
+		2B8BBD0C2C8AFE5C008139DF /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
+		2B8BBD0E2C8B1FA3008139DF /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		2B8BBD102C8B2129008139DF /* AddIncomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeUIView.swift; sourceTree = "<group>"; };
+		2B8BBD122C8B3069008139DF /* CategoryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUIView.swift; sourceTree = "<group>"; };
+		2B8BBD142C8B3424008139DF /* BudgetCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCellUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +111,8 @@
 		2B8BBCFA2C89F5FD008139DF /* First */ = {
 			isa = PBXGroup;
 			children = (
+				2B8BBD042C8AED97008139DF /* Budget */,
+				2B8BBD012C8AE9CE008139DF /* TabView */,
 				2B8BBCFB2C89F603008139DF /* Onboarding */,
 			);
 			path = First;
@@ -114,6 +132,52 @@
 				2B8BBCFF2C89FCCA008139DF /* UsOnboardingUIView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2B8BBD012C8AE9CE008139DF /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD022C8AE9DE008139DF /* TabUIView.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		2B8BBD042C8AED97008139DF /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD0B2C8AFE37008139DF /* Model */,
+				2B8BBD0A2C8AFE33008139DF /* View */,
+				2B8BBD092C8AFE29008139DF /* ViewModel */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		2B8BBD092C8AFE29008139DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD0C2C8AFE5C008139DF /* BudgetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B8BBD0A2C8AFE33008139DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD052C8AEDAB008139DF /* BudgetUIView.swift */,
+				2B8BBD072C8AFB74008139DF /* CurrencyUIView.swift */,
+				2B8BBD102C8B2129008139DF /* AddIncomeUIView.swift */,
+				2B8BBD122C8B3069008139DF /* CategoryUIView.swift */,
+				2B8BBD142C8B3424008139DF /* BudgetCellUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B8BBD0B2C8AFE37008139DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD0E2C8B1FA3008139DF /* Income.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +251,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8BBCEB2C89F2E2008139DF /* ContentView.swift in Sources */,
+				2B8BBD112C8B2129008139DF /* AddIncomeUIView.swift in Sources */,
+				2B8BBD132C8B3069008139DF /* CategoryUIView.swift in Sources */,
 				2B8BBCE92C89F2E2008139DF /* app522App.swift in Sources */,
+				2B8BBD032C8AE9DE008139DF /* TabUIView.swift in Sources */,
+				2B8BBD082C8AFB74008139DF /* CurrencyUIView.swift in Sources */,
 				2B8BBD002C89FCCA008139DF /* UsOnboardingUIView.swift in Sources */,
+				2B8BBD062C8AEDAB008139DF /* BudgetUIView.swift in Sources */,
+				2B8BBD0D2C8AFE5C008139DF /* BudgetViewModel.swift in Sources */,
+				2B8BBD152C8B3424008139DF /* BudgetCellUIView.swift in Sources */,
 				2B8BBCFE2C89F624008139DF /* ReOnboardingUIView.swift in Sources */,
+				2B8BBD0F2C8B1FA3008139DF /* Income.swift in Sources */,
 				2B8BBCF82C89F34E008139DF /* LoaderUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
