@@ -112,24 +112,41 @@ class BudgetViewModel: ObservableObject {
 //    func addCurrency(_ procedure: Procedure) {
 //        procedures.append(procedure)
 //    }
-//    
-//    
-//    func updateProcedure(for procedure: Procedure, name: String, price: String, time: String, notes: String) {
-//        
-//        if let index = procedures.firstIndex(where: { $0.id == procedure.id }) {
-//            procedures[index].name = name
-//            procedures[index].price = price
-//            procedures[index].time = time
-//            procedures[index].notes = notes
-//            
-//        }
-//    }
-//    
-//    func deleteProcedure(for procedure: Procedure) {
-//        if let index = procedures.firstIndex(where: { $0.id == procedure.id }) {
-//            procedures.remove(at: index)
-//        }
-//    }
+//
+//
+    
+    func updateExpenditure(for income: Income, name: String, amount: Double, category: Category) {
+        
+        if let index = expenditures.firstIndex(where: { $0.id == income.id }) {
+            expenditures[index].name = name
+            expenditures[index].amount = amount
+            expenditures[index].category = category
+            
+        }
+    }
+    
+    
+    func updateIncome(for income: Income, name: String, amount: Double, category: Category) {
+        
+        if let index = incomes.firstIndex(where: { $0.id == income.id }) {
+            incomes[index].name = name
+            incomes[index].amount = amount
+            incomes[index].category = category
+            
+        }
+    }
+    
+    func deleteExpenditure(for expenditure: Income) {
+        if let index = expenditures.firstIndex(where: { $0.id == expenditure.id }) {
+            expenditures.remove(at: index)
+        }
+    }
+//
+    func deleteIncome(for income: Income) {
+        if let index = incomes.firstIndex(where: { $0.id == income.id }) {
+            incomes.remove(at: index)
+        }
+    }
 //    
 //    
     private func getDocumentsDirectory() -> URL {

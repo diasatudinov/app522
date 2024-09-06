@@ -16,12 +16,19 @@ struct BudgetUIView: View {
     @ObservedObject var viewModel: BudgetViewModel
     @State private var selectedTab: Tab = .income
     @State private var newIncomeSheet: Bool = false
+    @State private var editIncomeSheet: Bool = false
     @State private var newExpenditureSheet: Bool = false
     @State private var newCategory: Bool = false
     @State private var selectedCategory: Category?
     
     private var percentage: Double {
-        return (viewModel.sumIncomes() * 100.0)/(viewModel.sumIncomes() + viewModel.sumExpenditures())
+        let total = viewModel.sumIncomes() + viewModel.sumExpenditures()
+        
+        if total == 0 {
+            return 0 // Return 0 if there's no income or expenditure to avoid NaN
+        }
+        
+        return (viewModel.sumIncomes() * 100.0) / total
     }
     
     var filteredIncomes: [Income] {
@@ -172,27 +179,73 @@ struct BudgetUIView: View {
                 ZStack {
                     Rectangle()
                         .foregroundColor(Color.grayBg).cornerRadius(32)
-                    if viewModel.incomes.isEmpty {
-                        Text("There are no records")
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(.black)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 90)
-                    } else {
-                        ScrollView {
-                            if selectedTab == .income {
+                    if selectedTab == .income {
+                        if viewModel.incomes.isEmpty {
+                            Text("There are no records")
+                                .font(.system(size: 17, weight: .semibold))
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 90)
+                        } else {
+                            ScrollView {
+                                
                                 ForEach(filteredIncomes, id: \.self) { income in
                                     BudgetCellUIView(income: income, symbol: viewModel.currencySymbol(for: viewModel.currency))
                                         .padding(.horizontal)//.padding(.top,8)
+                                        .contextMenu {
+                                            Button(action: {
+                                                editIncomeSheet = true
+                                            }) {
+                                                Label("Edit", systemImage: "pencil")
+                                            }
+                                            Button(action: {
+                                                viewModel.deleteIncome(for: income)
+                                            }) {
+                                                Label("Delete", systemImage: "trash")
+                                            }
+                                        }
+                                        .sheet(isPresented: $editIncomeSheet) {
+                                            EditIncomeView(viewModel: viewModel, income: income, selectedTab: selectedTab)
+                                        }
                                 }
-                            } else {
+                                
+                                
+                            }.padding(.bottom, 30)
+                        }
+                    } else {
+                        if viewModel.expenditures.isEmpty {
+                            Text("There are no records")
+                                .font(.system(size: 17, weight: .semibold))
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 90)
+                        } else {
+                            ScrollView {
+                                
                                 ForEach(filteredExpenditures, id: \.self) { income in
                                     BudgetCellUIView(income: income, symbol: viewModel.currencySymbol(for: viewModel.currency))
                                         .padding(.horizontal)//.padding(.top,8)
+                                        .contextMenu {
+                                            Button(action: {
+                                                // Edit action
+                                                editIncomeSheet = true
+                                            }) {
+                                                Label("Edit", systemImage: "pencil")
+                                            }
+                                            Button(action: {
+                                                viewModel.deleteExpenditure(for: income)
+                                            }) {
+                                                Label("Delete", systemImage: "trash")
+                                            }
+                                        }
+                                        .sheet(isPresented: $editIncomeSheet) {
+                                            EditIncomeView(viewModel: viewModel, income: income, selectedTab: selectedTab)
+                                        }
                                 }
                                 
-                            }
-                        }.padding(.bottom, 30)
+                                
+                            }.padding(.bottom, 30)
+                        }
                     }
                    
                 }
@@ -212,6 +265,8 @@ struct BudgetUIView: View {
         }.sheet(isPresented: $newIncomeSheet) {
             AddIncomeView(viewModel: viewModel, selectedTab: selectedTab)
         }
+        
+        
     }
     
 }
