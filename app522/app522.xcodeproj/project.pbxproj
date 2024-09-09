@@ -22,6 +22,11 @@
 		2B8BBD112C8B2129008139DF /* AddIncomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD102C8B2129008139DF /* AddIncomeUIView.swift */; };
 		2B8BBD132C8B3069008139DF /* CategoryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD122C8B3069008139DF /* CategoryUIView.swift */; };
 		2B8BBD152C8B3424008139DF /* BudgetCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD142C8B3424008139DF /* BudgetCellUIView.swift */; };
+		2B8BBD572C8EE61D008139DF /* MonetizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD562C8EE61D008139DF /* MonetizationViewModel.swift */; };
+		2B8BBD592C8EE628008139DF /* MonetizationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD582C8EE628008139DF /* MonetizationUIView.swift */; };
+		2B8BBD5B2C8EF12A008139DF /* MonetizationCategoryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD5A2C8EF12A008139DF /* MonetizationCategoryUIView.swift */; };
+		2B8BBD5D2C8EF486008139DF /* AddRecordUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD5C2C8EF486008139DF /* AddRecordUIView.swift */; };
+		2B8BBD5F2C8EFEFF008139DF /* NewBalanceUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD5E2C8EFEFF008139DF /* NewBalanceUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,11 @@
 		2B8BBD102C8B2129008139DF /* AddIncomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeUIView.swift; sourceTree = "<group>"; };
 		2B8BBD122C8B3069008139DF /* CategoryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUIView.swift; sourceTree = "<group>"; };
 		2B8BBD142C8B3424008139DF /* BudgetCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCellUIView.swift; sourceTree = "<group>"; };
+		2B8BBD562C8EE61D008139DF /* MonetizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationViewModel.swift; sourceTree = "<group>"; };
+		2B8BBD582C8EE628008139DF /* MonetizationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationUIView.swift; sourceTree = "<group>"; };
+		2B8BBD5A2C8EF12A008139DF /* MonetizationCategoryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationCategoryUIView.swift; sourceTree = "<group>"; };
+		2B8BBD5C2C8EF486008139DF /* AddRecordUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordUIView.swift; sourceTree = "<group>"; };
+		2B8BBD5E2C8EFEFF008139DF /* NewBalanceUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBalanceUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,7 @@
 		2B8BBCFA2C89F5FD008139DF /* First */ = {
 			isa = PBXGroup;
 			children = (
+				2B8BBD522C8EE5FD008139DF /* Monetization */,
 				2B8BBD042C8AED97008139DF /* Budget */,
 				2B8BBD012C8AE9CE008139DF /* TabView */,
 				2B8BBCFB2C89F603008139DF /* Onboarding */,
@@ -176,6 +187,42 @@
 			isa = PBXGroup;
 			children = (
 				2B8BBD0E2C8B1FA3008139DF /* Income.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B8BBD522C8EE5FD008139DF /* Monetization */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD552C8EE60E008139DF /* Model */,
+				2B8BBD542C8EE60A008139DF /* View */,
+				2B8BBD532C8EE603008139DF /* ViewModel */,
+			);
+			path = Monetization;
+			sourceTree = "<group>";
+		};
+		2B8BBD532C8EE603008139DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD562C8EE61D008139DF /* MonetizationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B8BBD542C8EE60A008139DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD582C8EE628008139DF /* MonetizationUIView.swift */,
+				2B8BBD5A2C8EF12A008139DF /* MonetizationCategoryUIView.swift */,
+				2B8BBD5C2C8EF486008139DF /* AddRecordUIView.swift */,
+				2B8BBD5E2C8EFEFF008139DF /* NewBalanceUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B8BBD552C8EE60E008139DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,18 +298,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8BBCEB2C89F2E2008139DF /* ContentView.swift in Sources */,
+				2B8BBD5D2C8EF486008139DF /* AddRecordUIView.swift in Sources */,
 				2B8BBD112C8B2129008139DF /* AddIncomeUIView.swift in Sources */,
 				2B8BBD132C8B3069008139DF /* CategoryUIView.swift in Sources */,
 				2B8BBCE92C89F2E2008139DF /* app522App.swift in Sources */,
 				2B8BBD032C8AE9DE008139DF /* TabUIView.swift in Sources */,
 				2B8BBD082C8AFB74008139DF /* CurrencyUIView.swift in Sources */,
+				2B8BBD5B2C8EF12A008139DF /* MonetizationCategoryUIView.swift in Sources */,
+				2B8BBD592C8EE628008139DF /* MonetizationUIView.swift in Sources */,
 				2B8BBD002C89FCCA008139DF /* UsOnboardingUIView.swift in Sources */,
+				2B8BBD5F2C8EFEFF008139DF /* NewBalanceUIView.swift in Sources */,
 				2B8BBD062C8AEDAB008139DF /* BudgetUIView.swift in Sources */,
 				2B8BBD0D2C8AFE5C008139DF /* BudgetViewModel.swift in Sources */,
 				2B8BBD152C8B3424008139DF /* BudgetCellUIView.swift in Sources */,
 				2B8BBCFE2C89F624008139DF /* ReOnboardingUIView.swift in Sources */,
 				2B8BBD0F2C8B1FA3008139DF /* Income.swift in Sources */,
 				2B8BBCF82C89F34E008139DF /* LoaderUIView.swift in Sources */,
+				2B8BBD572C8EE61D008139DF /* MonetizationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
