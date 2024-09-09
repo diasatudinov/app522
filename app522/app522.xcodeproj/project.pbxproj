@@ -27,6 +27,8 @@
 		2B8BBD5B2C8EF12A008139DF /* MonetizationCategoryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD5A2C8EF12A008139DF /* MonetizationCategoryUIView.swift */; };
 		2B8BBD5D2C8EF486008139DF /* AddRecordUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD5C2C8EF486008139DF /* AddRecordUIView.swift */; };
 		2B8BBD5F2C8EFEFF008139DF /* NewBalanceUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD5E2C8EFEFF008139DF /* NewBalanceUIView.swift */; };
+		2B8BBD642C8F1217008139DF /* SettingsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD632C8F1217008139DF /* SettingsUIView.swift */; };
+		2B8BBD662C8F136B008139DF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBD652C8F136B008139DF /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		2B8BBD5A2C8EF12A008139DF /* MonetizationCategoryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationCategoryUIView.swift; sourceTree = "<group>"; };
 		2B8BBD5C2C8EF486008139DF /* AddRecordUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordUIView.swift; sourceTree = "<group>"; };
 		2B8BBD5E2C8EFEFF008139DF /* NewBalanceUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBalanceUIView.swift; sourceTree = "<group>"; };
+		2B8BBD632C8F1217008139DF /* SettingsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUIView.swift; sourceTree = "<group>"; };
+		2B8BBD652C8F136B008139DF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		2B8BBCFA2C89F5FD008139DF /* First */ = {
 			isa = PBXGroup;
 			children = (
+				2B8BBD602C8F11F5008139DF /* Settings */,
 				2B8BBD522C8EE5FD008139DF /* Monetization */,
 				2B8BBD042C8AED97008139DF /* Budget */,
 				2B8BBD012C8AE9CE008139DF /* TabView */,
@@ -227,6 +232,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2B8BBD602C8F11F5008139DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD622C8F1207008139DF /* VIew */,
+				2B8BBD612C8F1201008139DF /* ViewModel */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2B8BBD612C8F1201008139DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD652C8F136B008139DF /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B8BBD622C8F1207008139DF /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BBD632C8F1217008139DF /* SettingsUIView.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,10 +337,12 @@
 				2B8BBD5B2C8EF12A008139DF /* MonetizationCategoryUIView.swift in Sources */,
 				2B8BBD592C8EE628008139DF /* MonetizationUIView.swift in Sources */,
 				2B8BBD002C89FCCA008139DF /* UsOnboardingUIView.swift in Sources */,
+				2B8BBD642C8F1217008139DF /* SettingsUIView.swift in Sources */,
 				2B8BBD5F2C8EFEFF008139DF /* NewBalanceUIView.swift in Sources */,
 				2B8BBD062C8AEDAB008139DF /* BudgetUIView.swift in Sources */,
 				2B8BBD0D2C8AFE5C008139DF /* BudgetViewModel.swift in Sources */,
 				2B8BBD152C8B3424008139DF /* BudgetCellUIView.swift in Sources */,
+				2B8BBD662C8F136B008139DF /* SettingsViewModel.swift in Sources */,
 				2B8BBCFE2C89F624008139DF /* ReOnboardingUIView.swift in Sources */,
 				2B8BBD0F2C8B1FA3008139DF /* Income.swift in Sources */,
 				2B8BBCF82C89F34E008139DF /* LoaderUIView.swift in Sources */,

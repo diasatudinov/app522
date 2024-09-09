@@ -12,6 +12,7 @@ struct TabUIView: View {
     private let tabs = ["Home", "Profile", "Settings"]
     @ObservedObject var budgetVM = BudgetViewModel()
     @ObservedObject var monetizationVM = MonetizationViewModel()
+    @ObservedObject var settingsVM = SettingsViewModel()
     var body: some View {
         ZStack {
             
@@ -22,7 +23,7 @@ struct TabUIView: View {
                 MonetizationUIView(viewModel: monetizationVM)
 
             case 2:
-                Text("Test")
+                SettingsUIView(viewModel: settingsVM)
             default:
                 Text("default")
             }
