@@ -10,7 +10,7 @@ import StoreKit
 
 class SettingsViewModel: ObservableObject {
     func shareApp() {
-        guard let url = URL(string: "https://apps.apple.com/app/dafaski/id6633439878") else { return }
+        guard let url = URL(string: "https://apps.apple.com/app/abilogic-core/id6690986537") else { return }
         let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -24,7 +24,7 @@ class SettingsViewModel: ObservableObject {
     }
     
     func openUsagePolicy() {
-        guard let url = URL(string: "https://www.termsfeed.com/live/58023c7e-7f73-46fd-9717-e9b281701e26") else { return }
+        guard let url = URL(string: "https://www.termsfeed.com/live/5c5af29b-255f-4ea9-95cc-0b126a79b48c") else { return }
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
