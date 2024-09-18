@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B58EB0B2C9B490200EF694C /* WUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EB0A2C9B490200EF694C /* WUIView.swift */; };
 		2B8BBCE92C89F2E2008139DF /* app522App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBCE82C89F2E2008139DF /* app522App.swift */; };
 		2B8BBCEB2C89F2E2008139DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BBCEA2C89F2E2008139DF /* ContentView.swift */; };
 		2B8BBCED2C89F2E3008139DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BBCEC2C89F2E3008139DF /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B58EB0A2C9B490200EF694C /* WUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WUIView.swift; sourceTree = "<group>"; };
 		2B8BBCE52C89F2E2008139DF /* app522.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app522.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8BBCE82C89F2E2008139DF /* app522App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app522App.swift; sourceTree = "<group>"; };
 		2B8BBCEA2C89F2E2008139DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B58EB092C9B48EE00EF694C /* W */ = {
+			isa = PBXGroup;
+			children = (
+				2B58EB0A2C9B490200EF694C /* WUIView.swift */,
+			);
+			path = W;
+			sourceTree = "<group>";
+		};
 		2B8BBCDC2C89F2E2008139DF = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		2B8BBCF92C89F5F5008139DF /* Second */ = {
 			isa = PBXGroup;
 			children = (
+				2B58EB092C9B48EE00EF694C /* W */,
 				2B8BBCFC2C89F609008139DF /* Onboarding */,
 			);
 			path = Second;
@@ -337,6 +348,7 @@
 				2B8BBD5B2C8EF12A008139DF /* MonetizationCategoryUIView.swift in Sources */,
 				2B8BBD592C8EE628008139DF /* MonetizationUIView.swift in Sources */,
 				2B8BBD002C89FCCA008139DF /* UsOnboardingUIView.swift in Sources */,
+				2B58EB0B2C9B490200EF694C /* WUIView.swift in Sources */,
 				2B8BBD642C8F1217008139DF /* SettingsUIView.swift in Sources */,
 				2B8BBD5F2C8EFEFF008139DF /* NewBalanceUIView.swift in Sources */,
 				2B8BBD062C8AEDAB008139DF /* BudgetUIView.swift in Sources */,
@@ -482,7 +494,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"app522/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Abilogic Core";
+				INFOPLIST_KEY_CFBundleDisplayName = "Forex Option: Trading Strategy";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,7 +505,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = adm.app522;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -516,7 +528,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"app522/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Abilogic Core";
+				INFOPLIST_KEY_CFBundleDisplayName = "Forex Option: Trading Strategy";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -527,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = adm.app522;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

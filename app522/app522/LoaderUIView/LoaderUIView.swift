@@ -15,7 +15,7 @@ struct LoaderUIView: View {
     var body: some View {
         if isLoadingView {
             ZStack {
-                Color.main
+                Color.loaderBg
                     .ignoresSafeArea()
                 
                 VStack {
